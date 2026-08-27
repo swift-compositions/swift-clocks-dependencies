@@ -2,7 +2,7 @@
 
 ![Development Status](https://img.shields.io/badge/status-active--development-orange.svg)
 
-A type-erased clock as a dependency value for [swift-dependencies](https://github.com/swift-foundations/swift-dependencies).
+A type-erased clock as a dependency value for [swift-dependencies](https://github.com/swift-compositions/swift-dependencies).
 
 > The clocks × dependencies integration package: one home for time as a
 > dependency. Consumers reach for `@Dependency(\.clock)` without their host
@@ -23,7 +23,7 @@ A type-erased clock as a dependency value for [swift-dependencies](https://githu
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-foundations/swift-clocks-dependencies.git", branch: "main")
+    .package(url: "https://github.com/swift-compositions/swift-clocks-dependencies.git", branch: "main")
 ]
 ```
 

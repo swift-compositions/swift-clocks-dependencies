@@ -1,4 +1,4 @@
-public import Clock_Primitives
+public import Clock
 public import Dependencies
 
 private enum Key: Dependency.Key {}

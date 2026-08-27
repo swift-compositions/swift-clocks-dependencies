@@ -20,11 +20,11 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-foundations/swift-dependencies.git",
+            url: "https://github.com/swift-compositions/swift-dependencies.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-clock-primitives.git",
+            url: "https://github.com/swift-molecules/swift-clock.git",
             branch: "main"
         ),
     ],
@@ -33,7 +33,7 @@ let package = Package(
             name: "Clocks Dependencies",
             dependencies: [
                 .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "Clock Primitives", package: "swift-clock-primitives"),
+                .product(name: "Clock", package: "swift-clock"),
             ]
         ),
         .testTarget(
