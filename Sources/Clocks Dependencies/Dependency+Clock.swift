@@ -9,7 +9,7 @@ extension Key {
 
 extension Key {
     static var liveValue: Clock.`Any`<Duration> {
-        Clock.`Any`(Clock.Continuous())
+        Clock.`Any`(Swift.ContinuousClock())
     }
 
     static var testValue: Clock.`Any`<Duration> {
