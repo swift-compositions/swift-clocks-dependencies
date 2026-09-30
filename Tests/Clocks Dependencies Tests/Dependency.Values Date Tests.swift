@@ -1,5 +1,4 @@
 import Dependencies_Test_Support
-import Foundation
 import Testing
 
 @testable import Clocks_Dependencies
@@ -16,9 +15,9 @@ extension `Dependency.Values Date Tests`.Unit {
     func `the live key resolves to wall-clock time`() {
         @Dependency(\.date) var date
 
-        let before = Date()
+        let before = DateFixture.now()
         let resolved = date()
-        let after = Date()
+        let after = DateFixture.now()
 
         #expect(resolved >= before)
         #expect(resolved <= after)
@@ -26,8 +25,8 @@ extension `Dependency.Values Date Tests`.Unit {
 
     @Test
     func `a constant generator returns its fixed date on every access`() {
-        let frozen = Date(timeIntervalSince1970: 1_234_567_890)
-        let generator = Date.Generator.constant(frozen)
+        let frozen = DateFixture.epoch(1_234_567_890)
+        let generator: DateFixture.Generator = .constant(frozen)
 
         #expect(generator() == frozen)
         #expect(generator() == frozen)
@@ -37,7 +36,7 @@ extension `Dependency.Values Date Tests`.Unit {
 extension `Dependency.Values Date Tests`.Integration {
     @Test
     func `withDependencies overrides the date for the operation scope`() {
-        let frozen = Date(timeIntervalSince1970: 0)
+        let frozen = DateFixture.epoch(0)
 
         withDependencies {
             $0.date = .constant(frozen)
@@ -48,10 +47,10 @@ extension `Dependency.Values Date Tests`.Integration {
         }
     }
 
-    @Test(.dependency(\.date, .constant(Date(timeIntervalSince1970: 42))))
+    @Test(.dependency(\.date, .constant(DateFixture.epoch(42))))
     func `the dependency trait overrides the date for a test`() {
         @Dependency(\.date) var date
 
-        #expect(date() == Date(timeIntervalSince1970: 42))
+        #expect(date() == DateFixture.epoch(42))
     }
 }
