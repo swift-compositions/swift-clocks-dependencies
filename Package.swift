@@ -24,7 +24,7 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-compositions/swift-clocks.git",
+            url: "https://github.com/swift-atoms/swift-clock.git",
             branch: "main"
         ),
     ],
@@ -33,7 +33,7 @@ let package = Package(
             name: "Clocks Dependencies",
             dependencies: [
                 .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "Clocks", package: "swift-clocks"),
+                .product(name: "Clock Concurrency", package: "swift-clock"),
             ]
         ),
         .testTarget(
